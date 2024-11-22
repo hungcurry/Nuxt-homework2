@@ -1,28 +1,18 @@
-<script setup lang="ts">
+<script setup>
 import { Icon } from '@iconify/vue'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
+
+import { computed, ref } from 'vue'
+import { RouterLink } from 'vue-router'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
-type Images = Record<string, {
-  desktop: string
-  mobile: string
-}>
-
-type RoomImages = Record<string, Images>
-
-definePageMeta({
-  name: 'rooms',
-})
-
-// const { publicImage } = useImage()
-
 const modules = ref([Autoplay, Navigation, Pagination])
 
-function importImage(url: string | URL) {
+function importImage(url) {
   const image = new URL(url, import.meta.url)
   return image.href
 }
@@ -30,11 +20,12 @@ function importImage(url: string | URL) {
 const roomImages = computed(() => {
   const rooms = ['a', 'b', 'c', 'd']
   const nums = [1, 2, 3, 4, 5]
-  const result = rooms.reduce<Record<string, Images>>((acc, roomId) => {
-    acc[`room${roomId.toUpperCase()}`] = nums.reduce<Images>((obj, num) => {
-      obj[num.toString()] = {
-        desktop: importImage(`@/assets/images/room-${roomId}-${num}.png`),
-        mobile: importImage(`@/assets/images/room-${roomId}-sm-${num}.png`),
+
+  const result = rooms.reduce((acc, roomId) => {
+    acc[`room${roomId.toUpperCase()}`] = nums.reduce((obj, num) => {
+      obj[num] = {
+        desktop: importImage(`../assets/images/room-${roomId}-${num}.png`),
+        mobile: importImage(`../assets/images/room-${roomId}-sm-${num}.png`),
       }
       return obj
     }, {})
@@ -58,17 +49,25 @@ const roomImages = computed(() => {
           disableOnInteraction: false,
         }"
       >
-        <SwiperSlide v-for="(num, index) in 5" :key="index">
+        <SwiperSlide
+          v-for="(num, index) in 5"
+          :key="index"
+        >
           <picture>
-            <source srcset="/images/home-hero.png" media="(min-width:576px)">
-            <img class="hero-img" src="/images/home-hero-sm.png" alt="hero banner">
+            <source
+              srcset="@/assets/images/home-hero.png"
+              media="(min-width:576px)"
+            >
+            <img
+              class="hero-img"
+              src="@/assets/images/home-hero-sm.png"
+              alt="hero banner"
+            >
           </picture>
         </SwiperSlide>
       </Swiper>
 
-      <div
-        class="hero-wrapper d-flex flex-column justify-content-center align-items-center flex-md-row gap-10 gap-md-20 w-100 position-absolute z-2"
-      >
+      <div class="hero-wrapper d-flex flex-column justify-content-center align-items-center flex-md-row gap-10 gap-md-20 w-100 position-absolute z-2">
         <div class="d-flex flex-column align-items-center text-center d-md-block text-md-start">
           <div class="mt-10 mb-5 mt-md-0 mb-md-10 text-primary-100 fw-bold">
             <h2 class="fw-semibold">
@@ -95,7 +94,9 @@ const roomImages = computed(() => {
           各種房型，任您挑選
         </h2>
         <ul class="d-flex flex-column gap-6 gap-md-12 list-unstyled">
-          <li class="card flex-lg-row border-0 rounded-3xl overflow-hidden">
+          <li
+            class="card flex-lg-row border-0 rounded-3xl overflow-hidden"
+          >
             <div class="row">
               <div class="col-12 col-lg-7">
                 <Swiper
@@ -108,9 +109,15 @@ const roomImages = computed(() => {
                     disableOnInteraction: false,
                   }"
                 >
-                  <SwiperSlide v-for="(num, index) in 5" :key="index">
+                  <SwiperSlide
+                    v-for="(num, index) in 5"
+                    :key="index"
+                  >
                     <picture>
-                      <source :srcset="roomImages.roomA[num].desktop" media="(min-width: 768px)">
+                      <source
+                        :srcset="roomImages.roomA[num].desktop"
+                        media="(min-width: 768px)"
+                      >
                       <img
                         class="w-100 object-fit-cover"
                         :src="roomImages.roomA[num].mobile"
@@ -131,32 +138,39 @@ const roomImages = computed(() => {
                   </p>
                   <ul class="d-flex gap-4 mb-6 mb-md-10 list-unstyled">
                     <li class="card-info px-4 py-5 border border-primary-40 rounded-3">
-                      <Icon class="mb-2 fs-5 text-primary-100" icon="fluent:slide-size-24-filled" />
+                      <Icon
+                        class="mb-2 fs-5 text-primary-100"
+                        icon="fluent:slide-size-24-filled"
+                      />
                       <p class="mb-0 fw-bold text-neutral-80 text-nowrap">
                         24 坪
                       </p>
                     </li>
                     <li class="card-info px-4 py-5 border border-primary-40 rounded-3">
-                      <Icon class="mb-2 fs-5 text-primary-100" icon="material-symbols:king-bed" />
+                      <Icon
+                        class="mb-2 fs-5 text-primary-100"
+                        icon="material-symbols:king-bed"
+                      />
                       <p class="mb-0 fw-bold text-neutral-80 text-nowrap">
                         1 張大床
                       </p>
                     </li>
                     <li class="card-info px-4 py-5 border border-primary-40 rounded-3">
-                      <Icon class="mb-2 fs-5 text-primary-100" icon="ic:baseline-person" />
+                      <Icon
+                        class="mb-2 fs-5 text-primary-100"
+                        icon="ic:baseline-person"
+                      />
                       <p class="mb-0 fw-bold text-neutral-80 text-nowrap">
                         2-4 人
                       </p>
                     </li>
                   </ul>
                   <div class="deco-line w-100 mb-6 mb-md-10" />
-                  <div
-                    class="d-flex justify-content-between align-items-center fs-7 fs-md-5 text-primary-100"
-                  >
+                  <div class="d-flex justify-content-between align-items-center fs-7 fs-md-5 text-primary-100">
                     <p class="mb-0 fw-bold">
                       NT$ 10,000
                     </p>
-                    <NuxtLink
+                    <RouterLink
                       :to="{
                         name: 'room-detail',
                         params: {
@@ -165,15 +179,20 @@ const roomImages = computed(() => {
                       }"
                       class="icon-link icon-link-hover text-primary-100"
                     >
-                      <Icon class="bi  fs-5" icon="mdi:arrow-right" />
-                    </NuxtLink>
+                      <Icon
+                        class="bi  fs-5"
+                        icon="mdi:arrow-right"
+                      />
+                    </RouterLink>
                   </div>
                 </div>
               </div>
             </div>
           </li>
 
-          <li class="card flex-lg-row border-0 rounded-3xl overflow-hidden">
+          <li
+            class="card flex-lg-row border-0 rounded-3xl overflow-hidden"
+          >
             <div class="row">
               <div class="col-12 col-lg-7">
                 <Swiper
@@ -186,9 +205,15 @@ const roomImages = computed(() => {
                     disableOnInteraction: false,
                   }"
                 >
-                  <SwiperSlide v-for="(num, index) in 5" :key="index">
+                  <SwiperSlide
+                    v-for="(num, index) in 5"
+                    :key="index"
+                  >
                     <picture>
-                      <source :srcset="roomImages.roomB[num].desktop" media="(min-width: 768px)">
+                      <source
+                        :srcset="roomImages.roomB[num].desktop"
+                        media="(min-width: 768px)"
+                      >
                       <img
                         class="w-100 object-fit-cover"
                         :src="roomImages.roomB[num].mobile"
@@ -209,32 +234,39 @@ const roomImages = computed(() => {
                   </p>
                   <ul class="d-flex gap-4 mb-6 mb-md-10 list-unstyled">
                     <li class="card-info px-4 py-5 border border-primary-40 rounded-3">
-                      <Icon class="mb-2 fs-5 text-primary-100" icon="fluent:slide-size-24-filled" />
+                      <Icon
+                        class="mb-2 fs-5 text-primary-100"
+                        icon="fluent:slide-size-24-filled"
+                      />
                       <p class="mb-0 fw-bold text-neutral-80 text-nowrap">
                         28 坪
                       </p>
                     </li>
                     <li class="card-info px-4 py-5 border border-primary-40 rounded-3">
-                      <Icon class="mb-2 fs-5 text-primary-100" icon="material-symbols:king-bed" />
+                      <Icon
+                        class="mb-2 fs-5 text-primary-100"
+                        icon="material-symbols:king-bed"
+                      />
                       <p class="mb-0 fw-bold text-neutral-80 text-nowrap">
                         1 張大床
                       </p>
                     </li>
                     <li class="card-info px-4 py-5 border border-primary-40 rounded-3">
-                      <Icon class="mb-2 fs-5 text-primary-100" icon="ic:baseline-person" />
+                      <Icon
+                        class="mb-2 fs-5 text-primary-100"
+                        icon="ic:baseline-person"
+                      />
                       <p class="mb-0 fw-bold text-neutral-80 text-nowrap">
                         2-4 人
                       </p>
                     </li>
                   </ul>
                   <div class="deco-line w-100 mb-6 mb-md-10" />
-                  <div
-                    class="d-flex justify-content-between align-items-center fs-7 fs-md-5 text-primary-100"
-                  >
+                  <div class="d-flex justify-content-between align-items-center fs-7 fs-md-5 text-primary-100">
                     <p class="mb-0 fw-bold">
                       NT$ 10,000
                     </p>
-                    <NuxtLink
+                    <RouterLink
                       :to="{
                         name: 'room-detail',
                         params: {
@@ -243,15 +275,20 @@ const roomImages = computed(() => {
                       }"
                       class="icon-link icon-link-hover text-primary-100"
                     >
-                      <Icon class="bi  fs-5" icon="mdi:arrow-right" />
-                    </NuxtLink>
+                      <Icon
+                        class="bi  fs-5"
+                        icon="mdi:arrow-right"
+                      />
+                    </RouterLink>
                   </div>
                 </div>
               </div>
             </div>
           </li>
 
-          <li class="card flex-lg-row border-0 rounded-3xl overflow-hidden">
+          <li
+            class="card flex-lg-row border-0 rounded-3xl overflow-hidden"
+          >
             <div class="row">
               <div class="col-12 col-lg-7">
                 <Swiper
@@ -264,9 +301,15 @@ const roomImages = computed(() => {
                     disableOnInteraction: false,
                   }"
                 >
-                  <SwiperSlide v-for="(num, index) in 5" :key="index">
+                  <SwiperSlide
+                    v-for="(num, index) in 5"
+                    :key="index"
+                  >
                     <picture>
-                      <source :srcset="roomImages.roomC[num].desktop" media="(min-width: 768px)">
+                      <source
+                        :srcset="roomImages.roomC[num].desktop"
+                        media="(min-width: 768px)"
+                      >
                       <img
                         class="w-100 object-fit-cover"
                         :src="roomImages.roomC[num].mobile"
@@ -287,32 +330,39 @@ const roomImages = computed(() => {
                   </p>
                   <ul class="d-flex gap-4 mb-6 mb-md-10 list-unstyled">
                     <li class="card-info px-4 py-5 border border-primary-40 rounded-3">
-                      <Icon class="mb-2 fs-5 text-primary-100" icon="fluent:slide-size-24-filled" />
+                      <Icon
+                        class="mb-2 fs-5 text-primary-100"
+                        icon="fluent:slide-size-24-filled"
+                      />
                       <p class="mb-0 fw-bold text-neutral-80 text-nowrap">
                         36 坪
                       </p>
                     </li>
                     <li class="card-info px-4 py-5 border border-primary-40 rounded-3">
-                      <Icon class="mb-2 fs-5 text-primary-100" icon="material-symbols:king-bed" />
+                      <Icon
+                        class="mb-2 fs-5 text-primary-100"
+                        icon="material-symbols:king-bed"
+                      />
                       <p class="mb-0 fw-bold text-neutral-80 text-nowrap">
                         2 張大床
                       </p>
                     </li>
                     <li class="card-info px-4 py-5 border border-primary-40 rounded-3">
-                      <Icon class="mb-2 fs-5 text-primary-100" icon="ic:baseline-person" />
+                      <Icon
+                        class="mb-2 fs-5 text-primary-100"
+                        icon="ic:baseline-person"
+                      />
                       <p class="mb-0 fw-bold text-neutral-80 text-nowrap">
                         2-4 人
                       </p>
                     </li>
                   </ul>
                   <div class="deco-line w-100 mb-6 mb-md-10" />
-                  <div
-                    class="d-flex justify-content-between align-items-center fs-7 fs-md-5 text-primary-100"
-                  >
+                  <div class="d-flex justify-content-between align-items-center fs-7 fs-md-5 text-primary-100">
                     <p class="mb-0 fw-bold">
                       NT$ 10,000
                     </p>
-                    <NuxtLink
+                    <RouterLink
                       :to="{
                         name: 'room-detail',
                         params: {
@@ -321,15 +371,20 @@ const roomImages = computed(() => {
                       }"
                       class="icon-link icon-link-hover text-primary-100"
                     >
-                      <Icon class="bi  fs-5" icon="mdi:arrow-right" />
-                    </NuxtLink>
+                      <Icon
+                        class="bi  fs-5"
+                        icon="mdi:arrow-right"
+                      />
+                    </RouterLink>
                   </div>
                 </div>
               </div>
             </div>
           </li>
 
-          <li class="card flex-lg-row border-0 rounded-3xl overflow-hidden">
+          <li
+            class="card flex-lg-row border-0 rounded-3xl overflow-hidden"
+          >
             <div class="row">
               <div class="col-12 col-lg-7">
                 <Swiper
@@ -342,9 +397,15 @@ const roomImages = computed(() => {
                     disableOnInteraction: false,
                   }"
                 >
-                  <SwiperSlide v-for="(num, index) in 5" :key="index">
+                  <SwiperSlide
+                    v-for="(num, index) in 5"
+                    :key="index"
+                  >
                     <picture>
-                      <source :srcset="roomImages.roomD[num].desktop" media="(min-width: 768px)">
+                      <source
+                        :srcset="roomImages.roomD[num].desktop"
+                        media="(min-width: 768px)"
+                      >
                       <img
                         class="w-100 object-fit-cover"
                         :src="roomImages.roomD[num].mobile"
@@ -365,32 +426,39 @@ const roomImages = computed(() => {
                   </p>
                   <ul class="d-flex gap-4 mb-6 mb-md-10 list-unstyled">
                     <li class="card-info px-4 py-5 border border-primary-40 rounded-3">
-                      <Icon class="mb-2 fs-5 text-primary-100" icon="fluent:slide-size-24-filled" />
+                      <Icon
+                        class="mb-2 fs-5 text-primary-100"
+                        icon="fluent:slide-size-24-filled"
+                      />
                       <p class="mb-0 fw-bold text-neutral-80 text-nowrap">
                         48 坪
                       </p>
                     </li>
                     <li class="card-info px-4 py-5 border border-primary-40 rounded-3">
-                      <Icon class="mb-2 fs-5 text-primary-100" icon="material-symbols:king-bed" />
+                      <Icon
+                        class="mb-2 fs-5 text-primary-100"
+                        icon="material-symbols:king-bed"
+                      />
                       <p class="mb-0 fw-bold text-neutral-80 text-nowrap">
                         2 張大床
                       </p>
                     </li>
                     <li class="card-info px-4 py-5 border border-primary-40 rounded-3">
-                      <Icon class="mb-2 fs-5 text-primary-100" icon="ic:baseline-person" />
+                      <Icon
+                        class="mb-2 fs-5 text-primary-100"
+                        icon="ic:baseline-person"
+                      />
                       <p class="mb-0 fw-bold text-neutral-80 text-nowrap">
                         2-4 人
                       </p>
                     </li>
                   </ul>
                   <div class="deco-line w-100 mb-6 mb-md-10" />
-                  <div
-                    class="d-flex justify-content-between align-items-center fs-7 fs-md-5 text-primary-100"
-                  >
+                  <div class="d-flex justify-content-between align-items-center fs-7 fs-md-5 text-primary-100">
                     <p class="mb-0 fw-bold">
                       NT$ 10,000
                     </p>
-                    <NuxtLink
+                    <RouterLink
                       :to="{
                         name: 'room-detail',
                         params: {
@@ -399,8 +467,11 @@ const roomImages = computed(() => {
                       }"
                       class="icon-link icon-link-hover text-primary-100"
                     >
-                      <Icon class="bi  fs-5" icon="mdi:arrow-right" />
-                    </NuxtLink>
+                      <Icon
+                        class="bi  fs-5"
+                        icon="mdi:arrow-right"
+                      />
+                    </RouterLink>
                   </div>
                 </div>
               </div>
@@ -464,7 +535,6 @@ $grid-breakpoints: (
 .swiper {
   display: grid;
 }
-
 .swiper :deep(.swiper-wrapper) {
   min-width: 0;
 }

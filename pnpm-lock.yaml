@@ -20,6 +20,9 @@ importers:
       '@popperjs/core':
         specifier: ^2.11.8
         version: 2.11.8
+      '@types/bootstrap':
+        specifier: ^5.2.10
+        version: 5.2.10
       axios:
         specifier: ^1.7.7
         version: 1.7.7
@@ -38,6 +41,9 @@ importers:
       sweetalert2:
         specifier: ^11.14.5
         version: 11.14.5
+      swiper:
+        specifier: ^11.1.15
+        version: 11.1.15
       v-calendar:
         specifier: ^3.1.2
         version: 3.1.2(@popperjs/core@2.11.8)(vue@3.5.13(typescript@5.6.3))
@@ -47,6 +53,9 @@ importers:
       vue-router:
         specifier: latest
         version: 4.4.5(vue@3.5.13(typescript@5.6.3))
+      vue-screen-utils:
+        specifier: 1.0.0-beta.13
+        version: 1.0.0-beta.13(vue@3.5.13(typescript@5.6.3))
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^3.9.2
@@ -1249,6 +1258,9 @@ packages:
   '@trysound/sax@0.2.0':
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
+
+  '@types/bootstrap@5.2.10':
+    resolution: {integrity: sha512-F2X+cd6551tep0MvVZ6nM8v7XgGN/twpdNDjqS1TUM7YFNEtQYWk+dKAnH+T1gr6QgCoGMPl487xw/9hXooa2g==}
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
@@ -4208,6 +4220,10 @@ packages:
   sweetalert2@11.14.5:
     resolution: {integrity: sha512-8MWk5uc/r6bWhiJWkUXyEuApfXAhSCZT8FFX7pZXL7YwaPxq+9Ynhi2dUzWkOFn9jvLjKj22CXuccZ+IHcnjvQ==}
 
+  swiper@11.1.15:
+    resolution: {integrity: sha512-IzWeU34WwC7gbhjKsjkImTuCRf+lRbO6cnxMGs88iVNKDwV+xQpBCJxZ4bNH6gSrIbbyVJ1kuGzo3JTtz//CBw==}
+    engines: {node: '>= 4.7.0'}
+
   synckit@0.6.2:
     resolution: {integrity: sha512-Vhf+bUa//YSTYKseDiiEuQmhGCoIF3CVBhunm3r/DQnYiGT4JssmnKQc44BIyOZRK2pKjXXAgbhfmbeoC9CJpA==}
     engines: {node: '>=12.20'}
@@ -6002,6 +6018,10 @@ snapshots:
       - typescript
 
   '@trysound/sax@0.2.0': {}
+
+  '@types/bootstrap@5.2.10':
+    dependencies:
+      '@popperjs/core': 2.11.8
 
   '@types/debug@4.1.12':
     dependencies:
@@ -9609,6 +9629,8 @@ snapshots:
       picocolors: 1.1.1
 
   sweetalert2@11.14.5: {}
+
+  swiper@11.1.15: {}
 
   synckit@0.6.2:
     dependencies:

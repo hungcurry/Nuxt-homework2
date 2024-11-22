@@ -16,15 +16,18 @@
     "@nuxt/eslint": "^0.7.1",
     "@pinia/nuxt": "^0.7.0",
     "@popperjs/core": "^2.11.8",
+    "@types/bootstrap": "^5.2.10",
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
     "dayjs": "^1.11.13",
     "nuxt": "^3.14.0",
     "pinia": "^2.2.6",
     "sweetalert2": "^11.14.5",
+    "swiper": "^11.1.15",
     "v-calendar": "^3.1.2",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "vue-screen-utils": "1.0.0-beta.13"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.9.2",
