@@ -3,6 +3,7 @@ import { Icon } from '@iconify/vue'
 
 definePageMeta({
   name: 'signup',
+  layout: 'account',
 })
 
 const isEmailAndPasswordValid = ref(false)
