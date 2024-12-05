@@ -62,7 +62,6 @@
             </NuxtLink>
           </li>
         </ul>
-
         <slot />
       </div>
     </section>

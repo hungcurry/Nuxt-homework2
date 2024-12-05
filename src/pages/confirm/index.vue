@@ -1,9 +1,9 @@
 <script setup lang="ts">
-navigateTo('/account/login')
+navigateTo('/')
 </script>
 
 <template>
-  <NuxtPage />
+  <div />
 </template>
 
 <style scoped lang="scss">

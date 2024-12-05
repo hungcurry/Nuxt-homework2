@@ -2,10 +2,10 @@
 import { Icon } from '@iconify/vue'
 
 definePageMeta({
-  name: 'booking-confirmation',
+  name: 'confirm-detail',
 })
 const route = useRoute()
-const { bookingId } = route.params
+const { orderId } = route.params
 </script>
 
 <template>
@@ -81,7 +81,7 @@ const { bookingId } = route.params
           >
             <div>
               <p class="mb-2 text-neutral-80 fs-8 fs-md-7 fw-medium">
-                預訂參考編號： {{ bookingId }}
+                預訂參考編號： {{ orderId }}
               </p>
               <h2 class="mb-0 text-neutral-100 fs-7 fs-md-5 fw-bold">
                 即將來的行程
