@@ -11,6 +11,9 @@ const isScrolled = ref(false)
 function handleScroll() {
   isScrolled.value = window.scrollY > 50
 }
+function goToUserPage() {
+  navigateTo('/user')
+}
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
@@ -67,7 +70,7 @@ onUnmounted(() => {
                 </button>
                 <ul class="dropdown-menu py-3 overflow-hidden" style="right: 0; left: auto; border-radius: 20px;">
                   <li>
-                    <NuxtLink class="dropdown-item px-6 py-4" to="/user/1/profile">
+                    <NuxtLink class="dropdown-item px-6 py-4" @click="goToUserPage">
                       我的帳戶
                     </NuxtLink>
                   </li>
