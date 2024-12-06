@@ -1,9 +1,9 @@
 <script setup lang="ts">
-// const userId = 'Jessica'
-// navigateTo({
-//   name: 'user-userId',
-//   params: { userId },
-// })
+const userId = 'Jessica'
+navigateTo({
+  name: 'user-userId',
+  params: { userId },
+})
 </script>
 
 <template>

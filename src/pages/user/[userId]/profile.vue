@@ -1,7 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
   name: 'user-profile',
-  // layout: 'user',
 })
 
 const isEditPassword = ref(false)
@@ -25,29 +24,39 @@ const isEditProfile = ref(false)
             >Jessica@exsample.com</span>
           </div>
 
-          <div
-            class="d-flex justify-content-between align-items-center"
-            :class="{ 'd-none': isEditPassword }"
-          >
-            <div>
-              <label class="mb-0 text-neutral-80 fs-8 fs-md-7 fw-medium">
-                密碼
-              </label>
-              <input
-                class="form-control pe-none p-0 text-neutral-100 fs-5 fs-md-3 fw-bold border-0"
-                type="password"
-                value="**********"
-              >
-            </div>
-
-            <button
-              class="flex-shrink-0 text-primary-100 fs-8 fs-md-7 fw-bold text-decoration-underline border-0 bg-transparent"
-              type="button"
-              @click="isEditPassword = !isEditPassword"
+          <form>
+            <div
+              class="d-flex justify-content-between align-items-center"
+              :class="{ 'd-none': isEditPassword }"
             >
-              重設
-            </button>
-          </div>
+              <div>
+                <input
+                  type="text"
+                  name="username"
+                  autocomplete="username"
+                  value="Jessica@exsample.com"
+                  class="visually-hidden"
+                >
+                <label class="mb-0 text-neutral-80 fs-8 fs-md-7 fw-medium">
+                  密碼
+                </label>
+                <input
+                  class="form-control pe-none p-0 text-neutral-100 fs-5 fs-md-3 fw-bold border-0"
+                  type="password"
+                  value="**********"
+                  autocomplete="current-password"
+                >
+              </div>
+
+              <button
+                class="flex-shrink-0 text-primary-100 fs-8 fs-md-7 fw-bold text-decoration-underline border-0 bg-transparent"
+                type="button"
+                @click="isEditPassword = !isEditPassword"
+              >
+                重設
+              </button>
+            </div>
+          </form>
 
           <form
             v-if="isEditPassword"
@@ -55,6 +64,13 @@ const isEditProfile = ref(false)
             method="POST"
             class="d-flex flex-column gap-4 gap-md-6"
           >
+            <input
+              type="text"
+              name="username"
+              autocomplete="username"
+              value="Jessica@exsample.com"
+              class="visually-hidden"
+            >
             <div>
               <label
                 for="oldPassword"
@@ -65,6 +81,7 @@ const isEditProfile = ref(false)
                 type="password"
                 class="form-control p-4 fs-7 rounded-3"
                 placeholder="請輸入舊密碼"
+                autocomplete="current-password"
               >
             </div>
 
@@ -78,6 +95,7 @@ const isEditProfile = ref(false)
                 type="password"
                 class="form-control p-4 fs-7 rounded-3"
                 placeholder="請輸入新密碼"
+                autocomplete="new-password"
               >
             </div>
 
@@ -91,6 +109,7 @@ const isEditProfile = ref(false)
                 type="password"
                 class="form-control p-4 fs-7 rounded-3"
                 placeholder="請再輸入一次新密碼"
+                autocomplete="new-password"
               >
             </div>
 
@@ -130,6 +149,7 @@ const isEditProfile = ref(false)
                 class="form-control text-neutral-100 fw-bold p-4"
                 type="text"
                 value="Jessica Ｗang"
+                autocomplete="name"
               >
             </div>
 
@@ -146,6 +166,7 @@ const isEditProfile = ref(false)
                 class="form-control text-neutral-100 fw-bold p-4"
                 type="tel"
                 value="+886 912 345 678"
+                autocomplete="tel"
               >
             </div>
 
@@ -160,6 +181,7 @@ const isEditProfile = ref(false)
                 <select
                   id="birth"
                   class="form-select p-4 text-neutral-80 fw-medium rounded-3"
+                  autocomplete="bday-year"
                 >
                   <option
                     v-for="year in 65"
@@ -171,6 +193,7 @@ const isEditProfile = ref(false)
                 </select>
                 <select
                   class="form-select p-4 text-neutral-80 fw-medium rounded-3"
+                  autocomplete="bday-month"
                 >
                   <option
                     v-for="month in 12"
@@ -182,6 +205,7 @@ const isEditProfile = ref(false)
                 </select>
                 <select
                   class="form-select p-4 text-neutral-80 fw-medium rounded-3"
+                  autocomplete="bday-day"
                 >
                   <option
                     v-for="day in 30"
@@ -205,6 +229,7 @@ const isEditProfile = ref(false)
                 <div class="d-flex gap-2 mb-2">
                   <select
                     class="form-select p-4 text-neutral-80 fw-medium rounded-3"
+                    autocomplete="address-level1"
                   >
                     <option value="臺北市">
                       臺北市
@@ -221,6 +246,7 @@ const isEditProfile = ref(false)
                   </select>
                   <select
                     class="form-select p-4 text-neutral-80 fw-medium rounded-3"
+                    autocomplete="address-level2"
                   >
                     <option value="前金區">
                       前金區
@@ -241,6 +267,7 @@ const isEditProfile = ref(false)
                   type="text"
                   class="form-control p-4 rounded-3"
                   placeholder="請輸入詳細地址"
+                  autocomplete="street-address"
                 >
               </div>
             </div>
@@ -267,6 +294,7 @@ const isEditProfile = ref(false)
                 class="form-control text-neutral-100 fw-bold pe-none p-0 border-0"
                 type="text"
                 value="Jessica Ｗang"
+                autocomplete="name"
               >
             </div>
 
@@ -283,6 +311,7 @@ const isEditProfile = ref(false)
                 class="form-control text-neutral-100 fw-bold pe-none p-0 border-0"
                 type="tel"
                 value="+886 912 345 678"
+                autocomplete="tel"
               >
             </div>
 

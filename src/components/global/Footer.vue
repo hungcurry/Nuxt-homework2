@@ -84,5 +84,4 @@ import { Icon } from '@iconify/vue'
 </template>
 
 <style lang="scss" scoped>
-
 </style>

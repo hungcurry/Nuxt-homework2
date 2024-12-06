@@ -30,6 +30,7 @@ definePageMeta({
           value="jessica@sample.com"
           placeholder="請輸入信箱"
           type="email"
+          autocomplete="username"
         >
       </div>
       <div class="mb-4 fs-8 fs-md-7">
@@ -45,6 +46,7 @@ definePageMeta({
           value="jessica@sample.com"
           placeholder="請輸入密碼"
           type="password"
+          autocomplete="current-password"
         >
       </div>
       <div class="d-flex justify-content-between align-items-center mb-10 fs-8 fs-md-7">

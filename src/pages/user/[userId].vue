@@ -1,14 +1,10 @@
 <script setup lang="ts">
-// definePageMeta({
-//   layout: 'userlayout',
-// })
 </script>
 
 <template>
-  <div>user/[userId]</div>
-  <!-- <NuxtLayout name="userlayout">
+  <NuxtLayout name="userlayout">
     <NuxtPage />
-  </NuxtLayout> -->
+  </NuxtLayout>
 </template>
 
 <style scoped lang="scss">

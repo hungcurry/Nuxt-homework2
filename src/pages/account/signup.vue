@@ -73,6 +73,7 @@ const isEmailAndPasswordValid = ref(false)
             class="form-control p-4 text-neutral-100 fw-medium border-neutral-40"
             placeholder="hello@exsample.com"
             type="email"
+            autocomplete="username"
           >
         </div>
         <div class="mb-4 fs-8 fs-md-7">
@@ -87,6 +88,7 @@ const isEmailAndPasswordValid = ref(false)
             class="form-control p-4 text-neutral-100 fw-medium border-neutral-40"
             placeholder="請輸入密碼"
             type="password"
+            autocomplete="new-password"
           >
         </div>
         <div class="mb-10 fs-8 fs-md-7">
@@ -101,6 +103,7 @@ const isEmailAndPasswordValid = ref(false)
             class="form-control p-4 text-neutral-100 fw-medium border-neutral-40"
             placeholder="請再輸入一次密碼"
             type="password"
+            autocomplete="new-password"
           >
         </div>
         <button
@@ -127,6 +130,7 @@ const isEmailAndPasswordValid = ref(false)
             class="form-control p-4 text-neutral-100 fw-medium border-neutral-40  rounded-3"
             placeholder="請輸入姓名"
             type="text"
+            autocomplete="name"
           >
         </div>
         <div class="mb-4 fs-8 fs-md-7">
@@ -141,6 +145,7 @@ const isEmailAndPasswordValid = ref(false)
             class="form-control p-4 text-neutral-100 fw-medium border-neutral-40  rounded-3"
             placeholder="請輸入手機號碼"
             type="tel"
+            autocomplete="tel"
           >
         </div>
         <div class="mb-4 fs-8 fs-md-7">
@@ -156,6 +161,7 @@ const isEmailAndPasswordValid = ref(false)
             <select
               id="birth"
               class="form-select p-4 text-neutral-80 fw-medium rounded-3"
+              autocomplete="bday-year"
             >
               <option
                 v-for="year in 65"
@@ -167,6 +173,7 @@ const isEmailAndPasswordValid = ref(false)
             </select>
             <select
               class="form-select p-4 text-neutral-80 fw-medium rounded-3"
+              autocomplete="bday-month"
             >
               <option
                 v-for="month in 12"
@@ -178,6 +185,7 @@ const isEmailAndPasswordValid = ref(false)
             </select>
             <select
               class="form-select p-4 text-neutral-80 fw-medium rounded-3"
+              autocomplete="bday-day"
             >
               <option
                 v-for="day in 30"
@@ -202,6 +210,7 @@ const isEmailAndPasswordValid = ref(false)
             >
               <select
                 class="form-select p-4 text-neutral-80 fw-medium rounded-3"
+                autocomplete="address-level1"
               >
                 <option value="臺北市">
                   臺北市
@@ -218,6 +227,7 @@ const isEmailAndPasswordValid = ref(false)
               </select>
               <select
                 class="form-select p-4 text-neutral-80 fw-medium rounded-3"
+                autocomplete="address-level2"
               >
                 <option value="前金區">
                   前金區
@@ -238,6 +248,7 @@ const isEmailAndPasswordValid = ref(false)
               type="text"
               class="form-control p-4 rounded-3"
               placeholder="請輸入詳細地址"
+              autocomplete="street-address"
             >
           </div>
         </div>

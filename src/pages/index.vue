@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
-
 import { Swiper, SwiperSlide } from 'swiper/vue'
-
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -13,13 +11,11 @@ definePageMeta({
 })
 
 const modules = ref([Autoplay, Navigation, Pagination])
-
 const roomSwiper = useTemplateRef('roomSwiper')
 
 function slidePrev() {
   roomSwiper.value?.$el.swiper.slidePrev()
 }
-
 function slideNext() {
   roomSwiper.value?.$el.swiper.slideNext()
 }

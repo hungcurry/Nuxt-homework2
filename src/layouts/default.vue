@@ -2,11 +2,11 @@
 
 <template>
   <div class="template">
-    <AppHeader />
+    <Header />
     <main class="content">
       <slot />
     </main>
-    <AppFooter />
+    <Footer />
   </div>
 </template>
 

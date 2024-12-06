@@ -1,11 +1,10 @@
 <script setup lang="ts">
 const route = useRoute()
-console.log('route', route)
 navigateTo(`/user/${route.params.userId}/profile`)
 </script>
 
 <template>
-  <div>Index</div>
+  <div />
 </template>
 
 <style scoped lang="scss">

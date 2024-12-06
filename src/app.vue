@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" coped>
 // 頁面過渡動畫
 .page-enter-active,
 .page-leave-active {

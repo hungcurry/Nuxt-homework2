@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   app: {
     // baseURL: '/Nuxt-Livecourse/',
     head: {
-      title: '樂悠悠',
+      title: 'Freyja,Freyja 訂房',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       htmlAttrs: {
@@ -100,5 +100,9 @@ export default defineNuxtConfig({
       standalone: false,
     },
   },
-  modules: [['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }], '@unocss/nuxt', '@nuxt/eslint'],
+  modules: [
+    ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }],
+    '@unocss/nuxt',
+    '@nuxt/eslint',
+  ],
 })

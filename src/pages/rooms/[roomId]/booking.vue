@@ -4,14 +4,11 @@ import { Icon } from '@iconify/vue'
 definePageMeta({
   name: 'booking',
 })
-
 const router = useRouter()
-
+const isLoading = ref(false)
 function goBack() {
   router.back()
 }
-const isLoading = ref(false)
-
 function confirmBooking() {
   isLoading.value = true
 

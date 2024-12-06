@@ -3,9 +3,7 @@ import { Icon } from '@iconify/vue'
 
 const route = useRoute()
 const transparentBgRoute = ['home', 'rooms']
-
 const isTransparentRoute = computed(() => transparentBgRoute.includes(route.name as string))
-
 const isScrolled = ref(false)
 
 function handleScroll() {
@@ -14,11 +12,9 @@ function handleScroll() {
 function goToUserPage() {
   navigateTo('/user')
 }
-
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
 })
-
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })

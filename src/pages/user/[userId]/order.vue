@@ -3,7 +3,6 @@ import { Icon } from '@iconify/vue'
 
 definePageMeta({
   name: 'user-order',
-  // layout: 'user',
 })
 
 const roomId = 'a' // for navigation demo
