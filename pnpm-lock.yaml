@@ -9,7 +9,7 @@ dependencies:
     specifier: ^4.1.2
     version: 4.1.2(vue@3.5.13)
   '@nuxt/eslint':
-    specifier: ^0.7.1
+    specifier: ^0.7.2
     version: 0.7.2(@vue/compiler-sfc@3.5.13)(eslint@9.16.0)(typescript@5.7.2)(vite@5.4.11)
   '@pinia/nuxt':
     specifier: ^0.7.0
@@ -21,7 +21,7 @@ dependencies:
     specifier: ^5.2.10
     version: 5.2.10
   axios:
-    specifier: ^1.7.7
+    specifier: ^1.7.9
     version: 1.7.9
   bootstrap:
     specifier: ^5.3.3
@@ -30,10 +30,10 @@ dependencies:
     specifier: ^1.11.13
     version: 1.11.13
   nuxt:
-    specifier: ^3.14.0
+    specifier: ^3.14.1592
     version: 3.14.1592(eslint@9.16.0)(sass@1.77.6)(typescript@5.7.2)(vite@5.4.11)(vue-tsc@2.1.10)
   pinia:
-    specifier: ^2.2.6
+    specifier: ^2.3.0
     version: 2.3.0(typescript@5.7.2)(vue@3.5.13)
   sweetalert2:
     specifier: ^11.14.5
@@ -56,19 +56,19 @@ dependencies:
 
 devDependencies:
   '@antfu/eslint-config':
-    specifier: ^3.9.2
+    specifier: ^3.11.2
     version: 3.11.2(@typescript-eslint/utils@8.17.0)(@vue/compiler-sfc@3.5.13)(eslint@9.16.0)(typescript@5.7.2)
   '@unocss/nuxt':
     specifier: ^0.64.1
     version: 0.64.1(postcss@8.4.49)(vite@5.4.11)(vue@3.5.13)(webpack@5.97.1)
   eslint:
-    specifier: ^9.15.0
+    specifier: ^9.16.0
     version: 9.16.0
   sass:
     specifier: 1.77.6
     version: 1.77.6
   typescript:
-    specifier: ^5.6.2
+    specifier: ^5.7.2
     version: 5.7.2
   unocss:
     specifier: ^0.64.1
